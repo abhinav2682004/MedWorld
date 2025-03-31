@@ -1,0 +1,28 @@
+/* Footer.css */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40; /* Bootstrap dark background */
+    color: white;
+    text-align: center;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    color: #d3d3d3; /* Light grey color for hover */
+  }
+  
+  .footer ul {
+    padding-left: 0;
+  }
+  
+  .footer ul li {
+    list-style: none;
+    padding: 5px 0;
+  }
+  

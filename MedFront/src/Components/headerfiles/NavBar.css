@@ -1,0 +1,23 @@
+/* NavBar.css */
+.nav-link.custom-link {
+  color: #f8f9fa !important; /* Lighter color */
+  font-weight: bold;
+}
+
+.nav-link.custom-link:hover {
+  color: #e9ecef !important; /* Slightly lighter on hover */
+}
+
+.navbar-brand svg {
+  fill: #f8f9fa;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-dropdown {
+  color: #f8f9fa;
+}
+.medworld-title {
+  font-weight: 900; /* Thicker font weight */
+  color: #f8f9fa;  /* Ensure the color matches the rest of the theme */
+}

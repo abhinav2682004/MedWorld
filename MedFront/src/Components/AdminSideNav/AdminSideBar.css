@@ -1,0 +1,40 @@
+/* AdminSideBar.css */
+.admin-sidebar {
+    position: fixed;
+    top: 115px; /* Adjust based on your navbar height */
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 56px); /* Adjust for space below navbar */
+    background-color: #343a40;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y:auto;
+    padding-top: 20px;
+}
+
+.sidebar-link {
+    color: #adb5bd;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.content-container {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 56px); /* Adjust for space below navbar */
+    margin-left: 0; /* Default to no margin */
+    transition: margin-left ease; /* Smooth transition for margin changes */
+}
+
+.content-container.with-sidebar {
+    margin-left: 240px; /* Adjust this width based on your sidebar width */
+}
+
+.me-3{
+    display: inline;
+}

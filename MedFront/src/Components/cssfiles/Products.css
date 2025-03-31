@@ -1,0 +1,17 @@
+.products-grid-container {
+    padding-bottom: 50px; /* Add padding to the bottom to prevent overlap with footer */
+  }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 10px; /* Adjust margin to ensure proper spacing */
+  }
+  

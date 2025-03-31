@@ -1,0 +1,33 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .cart-item h5 {
+    margin: 0;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-control button {
+    margin: 0 3px;
+  }
+  
+  .quantity-control h5 {
+    margin: 0 1px;
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  
+  button[variant="success"] {
+    width: 100%;
+  }
+  
