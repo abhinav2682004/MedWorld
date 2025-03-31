@@ -23,7 +23,7 @@ const About = () => {
             alert('Feedback submitted successfully.');
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (error) {
-            alert('Error submitting feedback.');
+            // alert('Error submitting feedback.');
         }
     };
 
