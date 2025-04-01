@@ -18,7 +18,7 @@ const cors=require('cors');
 app.use(express.json());
 app.use(cors());
 const mongoose=require('mongoose')
-
+console.log(process.env.MONGO_URI)
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log("Successful connection"));
 
