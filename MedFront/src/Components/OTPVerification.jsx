@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TextField, Button, Container, Box, Typography, Alert } from '@mui/material';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const OtpVerification = () => {
   const [otp, setOtp] = useState('');
@@ -14,7 +16,7 @@ const OtpVerification = () => {
     try {
       const email=location.state?.email;
       console.log('Email received is ',email);
-      const response = await axios.post('http://localhost:5632/login/verifyOTP', { email:email, otp });
+      const response = await axios.post(`${BASE_URL}/login/verifyOTP`, { email:email, otp });
       if(response.data.message==='OTP has expired') {
         alert('Sorry Your OTP has Expired, Please try again..');  
         navigate('/forgotpass');

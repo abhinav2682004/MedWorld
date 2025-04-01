@@ -3,6 +3,8 @@ import { Container, Row, Col, Card, Button,Image } from 'react-bootstrap'; // As
 import {useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 const ProdPrescription = () => {
     const navigate=useNavigate();
     const [prod,setProd]=useState(null);
@@ -16,7 +18,7 @@ const ProdPrescription = () => {
             const role = localStorage.getItem("role");
             const userId=localStorage.getItem("userId");
             const pid=localStorage.getItem("pid");
-            const response=await axios.post(`http://localhost:5632/home/getProd/${pid}`,
+            const response=await axios.post(`${BASE_URL}/home/getProd/${pid}`,
                     {
                         headers:{
                             Authorization: `Bearer ${token}`,

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TextField, Button, Container, Box, Typography, Alert } from '@mui/material';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
@@ -19,7 +21,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5632/login/reset-password', {
+      const response = await axios.post(`${BASE_URL}/login/reset-password`, {
         email,
         newPass:newPassword,
         confirmPass:confirmPassword,

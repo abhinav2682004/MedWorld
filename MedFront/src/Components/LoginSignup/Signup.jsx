@@ -6,6 +6,8 @@ import user_icon from '../Assets/person.png';
 import password_icon from '../Assets/password.png';
 import email_icon from '../Assets/email.png';
 import {toast} from 'react-toastify';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 const Signup = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -28,7 +30,7 @@ const Signup = () => {
   const signupHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5632/signup', formData);
+      const response = await axios.post(`${BASE_URL}/signup`, formData);
       if (response.data.Valid) {
         localStorage.setItem('token', response.data.token); 
         localStorage.setItem('role', response.data.role); 

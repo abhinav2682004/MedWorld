@@ -3,6 +3,8 @@ import { Container, Row, Col, Card ,Button} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const ConfirmProd = () => {
     const [order, setOrder] = useState(null);
@@ -18,7 +20,7 @@ const ConfirmProd = () => {
             const role = localStorage.getItem("role");
             const userId = localStorage.getItem("userId");
             const pid=localStorage.getItem("pid");
-            const response = await axios.post(`http://localhost:5632/home/getProd/${pid}`,{userId:userId}, {
+            const response = await axios.post(`${BASE_URL}/home/getProd/${pid}`,{userId:userId}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Role: role

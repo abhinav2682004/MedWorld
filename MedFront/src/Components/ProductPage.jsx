@@ -4,6 +4,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const ProductPage = () => {
   const [prod, setProd] = useState({});
@@ -20,7 +22,7 @@ const ProductPage = () => {
     try {
       setUserRole(localStorage.getItem("role"));
       const pid = localStorage.getItem('pid');
-      const res = await axios.post(`http://localhost:5632/home/getProd/${pid}`);
+      const res = await axios.post(`${BASE_URL}/home/getProd/${pid}`);
       setProd(res.data);
     } catch (e) {
       console.log(e);
@@ -40,7 +42,7 @@ const ProductPage = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5632/cart/addtocart/${product._id}`,
+        `${BASE_URL}/cart/addtocart/${product._id}`,
         {
           userId,quantity
         },
@@ -69,7 +71,7 @@ const ProductPage = () => {
         const token = localStorage.getItem('token');
         const role = localStorage.getItem('role');
         const userId = localStorage.getItem('userId');
-        const res=await axios.post(`http://localhost:5632/cart/increment/${id}`, { userId: userId }, {
+        const res=await axios.post(`${BASE_URL}/cart/increment/${id}`, { userId: userId }, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 Role: role,
@@ -91,7 +93,7 @@ const ProductPage = () => {
         const token = localStorage.getItem('token');
         const role = localStorage.getItem('role');
         const userId = localStorage.getItem('userId');
-        await axios.post(`http://localhost:5632/cart/decrement/${id}`, { userId: userId }, {
+        await axios.post(`${BASE_URL}/cart/decrement/${id}`, { userId: userId }, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 Role: role,

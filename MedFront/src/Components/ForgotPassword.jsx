@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TextField, Button, Container, Box, Typography, Alert } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const ForgotPassword = ({ onOtpSent = () => {} }) => {
   const [email, setEmail] = useState('');
@@ -16,7 +18,7 @@ const ForgotPassword = ({ onOtpSent = () => {} }) => {
         setError('Please enter your email');
         return;
       }
-      const response = await axios.post('http://localhost:5632/login/reset', { email:email });
+      const response = await axios.post(`${BASE_URL}:5632/login/reset`, { email:email });
       setMessage('If an account with that email exists, a password reset link has been sent.');
       setError('');
       onOtpSent(email);

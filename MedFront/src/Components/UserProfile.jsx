@@ -3,6 +3,8 @@ import { Form, Button, Image, Row, Col, Container } from 'react-bootstrap';
 import { FaUser, FaTrash } from 'react-icons/fa';
 import './UserProfile.css';
 import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -29,7 +31,7 @@ const UserProfile = () => {
   // Function to fetch profile data
   const fetchProfileData = async () => {
     const userId=localStorage.getItem("userId");
-    await axios.post('http://localhost:5632/profile/',{userId:userId})
+    await axios.post(`${BASE_URL}:5632/profile/`,{userId:userId})
       .then(response => setProfileData(response.data))
       .catch(error => console.error(error));
   };
@@ -108,7 +110,7 @@ const UserProfile = () => {
       
     })*/
     const userId=localStorage.getItem("userId");
-    await axios.post('http://localhost:5632/profile/add',{profileData,userId:userId})
+    await axios.post(`${BASE_URL}/profile/add`,{profileData,userId:userId})
       .then(response => {
         setIsEditing(false);
         // Update profile data with response

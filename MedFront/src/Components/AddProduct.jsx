@@ -5,6 +5,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
+console.log("BASE_URL:", process.env.REACT_APP_BASE_URL);
+
 
 const AddProduct = () => {
     const [productName, setProductName] = useState('');
@@ -29,7 +33,7 @@ const AddProduct = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5632/admin/addProduct', newProduct, {
+            const response = await axios.post(`${BASE_URL}/admin/addProduct`, newProduct, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     Role: `${localStorage.getItem('role')}`

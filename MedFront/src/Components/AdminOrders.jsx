@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const AdminOrders = () => {
   const [usersOrders, setUsersOrders] = useState([]);
@@ -11,7 +13,7 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.post('http://localhost:5632/admin/getOrders');
+      const response = await axios.post(`${BASE_URL}/admin/getOrders`);
       setUsersOrders(response.data);
     } catch (error) {
       console.error('Error fetching users orders:', error);

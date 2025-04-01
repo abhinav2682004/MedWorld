@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import logo from './Assets/about.png';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const About = () => {
     const [formData, setFormData] = useState({
@@ -19,7 +21,7 @@ const About = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5632/feedback/add', formData);
+            await axios.post(`${BASE_URL}/feedback/add`, formData);
             alert('Feedback submitted successfully.');
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (error) {

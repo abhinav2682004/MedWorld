@@ -10,6 +10,8 @@ import {
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 export function Payment() {
   const [paymentMethod, setPaymentMethod] = useState('creditDebitCard');
@@ -20,7 +22,7 @@ export function Payment() {
       const userId=localStorage.getItem("userId");
       const token=localStorage.getItem("token");
       const role=localStorage.getItem("role");
-      const res=await axios.post(`http://localhost:5632/orders/saveOrder/${userId}`,
+      const res=await axios.post(`${BASE_URL}/orders/saveOrder/${userId}`,
           {address:address,modeOfPayment:paymentMethod},
           {
             headers:{

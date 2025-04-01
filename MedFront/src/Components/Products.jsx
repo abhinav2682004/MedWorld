@@ -4,6 +4,8 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const Products = () => {
   const [prods, setProds] = useState([]);
@@ -21,7 +23,7 @@ const Products = () => {
     try {
       const token = localStorage.getItem('token');
       const role = localStorage.getItem('role');
-      const response = await axios.post('http://localhost:5632/home', {}, {
+      const response = await axios.post(`${BASE_URL}/home`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
           Role: role,
@@ -65,7 +67,7 @@ const Products = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5632/cart/addtocart/${product._id}`,
+        `${BASE_URL}/cart/addtocart/${product._id}`,
         {
           userId,
           quantity: 1

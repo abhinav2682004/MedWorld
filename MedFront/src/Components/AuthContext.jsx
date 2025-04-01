@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const AuthContext = createContext();
 
@@ -17,7 +19,7 @@ export const AuthProvider = ({ children, onRoleChange }) => {
 
     const loginAction = async (data) => {
         try {
-            const response = await axios.post("http://localhost:5632/login", { email: data.email, password: data.password, username: data.username });
+            const response = await axios.post(`${BASE_URL}/login`, { email: data.email, password: data.password, username: data.username });
             if (response.data) {
                 setToken(response.data.token);
                 setRole(response.data.role);

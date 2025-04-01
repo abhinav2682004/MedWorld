@@ -5,6 +5,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const ManageExistingStock = () => {
     const [products, setProducts] = useState([]);
@@ -23,7 +25,7 @@ const ManageExistingStock = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.post('http://localhost:5632/home', {}, {
+            const response = await axios.post(`${BASE_URL}:5632/home`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     Role: localStorage.getItem('role')
@@ -68,7 +70,7 @@ const ManageExistingStock = () => {
         };
     
         try {
-            await axios.post(`http://localhost:5632/admin/productEdit/${selectedProduct.productId}`, { updatedProduct }, {
+            await axios.post(`${BASE_URL}/admin/productEdit/${selectedProduct.productId}`, { updatedProduct }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     Role: localStorage.getItem('role')
@@ -88,7 +90,7 @@ const ManageExistingStock = () => {
 
     const confirmRemove = async () => {
         try {
-            await axios.post(`http://localhost:5632/admin/delete/${selectedProduct.productId}`, {}, {
+            await axios.post(`${BASE_URL}/admin/delete/${selectedProduct.productId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     Role: localStorage.getItem('role')

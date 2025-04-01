@@ -4,6 +4,8 @@ import './cssfiles/cartPage.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -14,7 +16,7 @@ const Cart = () => {
             const token = localStorage.getItem('token');
             const role = localStorage.getItem('role');
             const userId = localStorage.getItem('userId');
-            const response = await axios.post('http://localhost:5632/cart', { userId: userId }, {
+            const response = await axios.post(`${BASE_URL}/cart`, { userId: userId }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Role: role,
@@ -37,7 +39,7 @@ const Cart = () => {
             const token = localStorage.getItem('token');
             const role = localStorage.getItem('role');
             const userId = localStorage.getItem('userId');
-            await axios.post(`http://localhost:5632/cart/increment/${id}`, { userId: userId }, {
+            await axios.post(`${BASE_URL}/cart/increment/${id}`, { userId: userId }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Role: role,
@@ -54,7 +56,7 @@ const Cart = () => {
             const token = localStorage.getItem('token');
             const role = localStorage.getItem('role');
             const userId = localStorage.getItem('userId');
-            await axios.post(`http://localhost:5632/cart/decrement/${id}`, { userId: userId }, {
+            await axios.post(`${BASE_URL}/cart/decrement/${id}`, { userId: userId }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Role: role,
@@ -71,7 +73,7 @@ const Cart = () => {
             const token = localStorage.getItem('token');
             const role = localStorage.getItem('role');
             const userId = localStorage.getItem('userId');
-            await axios.post(`http://localhost:5632/cart/delete/${id}`, { userId: userId }, {
+            await axios.post(`${BASE_URL}/cart/delete/${id}`, { userId: userId }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Role: role,

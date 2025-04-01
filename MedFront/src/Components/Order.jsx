@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Row, Col, Image } from 'react-bootstrap';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const Order = () => {
     const [orders, setOrders] = useState(null);
@@ -14,7 +16,7 @@ const Order = () => {
             const token = localStorage.getItem("token");
             const role = localStorage.getItem("role");
             const userId = localStorage.getItem("userId");
-            const response = await axios.post(`http://localhost:5632/orders/${userId}`, null, {
+            const response = await axios.post(`${BASE_URL}/orders/${userId}`, null, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Role: role

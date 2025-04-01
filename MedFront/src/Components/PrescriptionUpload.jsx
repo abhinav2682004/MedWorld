@@ -3,6 +3,8 @@ import { Container, Row, Col, Card, Button,Image } from 'react-bootstrap'; // As
 import {useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 const PrescriptionUpload = () => {
     const navigate=useNavigate();
     const [cartItems,setCartItems]=useState([]);
@@ -15,7 +17,7 @@ const PrescriptionUpload = () => {
             const token=localStorage.getItem("token");
             const role = localStorage.getItem("role");
             const userId=localStorage.getItem("userId");
-            const response=await axios.post(`http://localhost:5632/cart/`,{userId:userId},
+            const response=await axios.post(`${BASE_URL}:5632/cart/`,{userId:userId},
                     {
                         headers:{
                             Authorization: `Bearer ${token}`,
