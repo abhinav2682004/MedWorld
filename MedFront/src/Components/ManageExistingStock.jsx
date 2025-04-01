@@ -25,7 +25,7 @@ const ManageExistingStock = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.post(`${BASE_URL}:5632/home`, {}, {
+            const response = await axios.post(`${BASE_URL}/home`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     Role: localStorage.getItem('role')

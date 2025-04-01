@@ -31,7 +31,7 @@ const UserProfile = () => {
   // Function to fetch profile data
   const fetchProfileData = async () => {
     const userId=localStorage.getItem("userId");
-    await axios.post(`${BASE_URL}:5632/profile/`,{userId:userId})
+    await axios.post(`${BASE_URL}/profile/`,{userId:userId})
       .then(response => setProfileData(response.data))
       .catch(error => console.error(error));
   };

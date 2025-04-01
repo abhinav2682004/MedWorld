@@ -17,7 +17,7 @@ const PrescriptionUpload = () => {
             const token=localStorage.getItem("token");
             const role = localStorage.getItem("role");
             const userId=localStorage.getItem("userId");
-            const response=await axios.post(`${BASE_URL}:5632/cart/`,{userId:userId},
+            const response=await axios.post(`${BASE_URL}/cart/`,{userId:userId},
                     {
                         headers:{
                             Authorization: `Bearer ${token}`,
